@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Archive</title>
+    <title>Phone Hub</title>
     <!-- Bootstrap Link -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -13,26 +13,26 @@
       crossorigin="anonymous"
     />
     <!-- Raw CSS link -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
     <div class="container py-4">
-      <h1 class="text-center text-primary mb-2">Search your desired book</h1>
+      <h1 class="text-center text-primary mb-2">Search your desired phone</h1>
 
       <!-- Search field -->
       <form id="form" class="d-flex justify-content-center">
         <input
-          id="bookInput"
+          id="phoneInput"
           class="form-control form-control-sm"
           type="text"
-          placeholder="Search a book please"
+          placeholder="Search a phone please"
           autocomplete="off"
           aria-label=".form-control-sm example"
         />
         <input class="btn btn-warning ms-2" type="submit" value="Search" />
       </form>
       <!-- Number show in page -->
-      <h2 id="booksLength" class="text-center text-primary my-2"></h2>
+      <h2 id="phonesLength" class="text-center text-primary my-2"></h2>
 
       <!-- Spinner loading indicator-->
       <div id="spinner" class="text-center mt-3 text-primary hide">
@@ -40,8 +40,8 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <!-- products show in UI -->
-      <div id="booksContainer" class="row mt-4"></div>
+      <!-- phones show in UI -->
+      <div id="phonesContainer" class="row mt-4"></div>
     </div>
     <!-- JS link -->
     <script src="./js/script.js"></script>
