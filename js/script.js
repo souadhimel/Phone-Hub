@@ -1,56 +1,67 @@
-// Selectors
-const form = document.getElementById("form");
-const phoneInput = document.getElementById("phoneInput");
-const phonesLength = document.getElementById("phonesLength");
-const spinner = document.getElementById("spinner");
-const phonesContainer = document.getElementById("phonesContainer");
-
-// Fetching phones data from API
-function getPhones(searchText) {
-  spinner.classList.remove("hide");
-  phonesContainer.innerHTML = "";
-  phonesLength.innerHTML = "";
-
-  fetch(`https://openapi.programming-hero.com/api/phones?search=$(searchText)`)
+const getPhones = () => {
+  fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
     .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      showPhones(data.docs);
-      spinner.classList.add("hide");
-    });
-}
+    .then((data) => displayPhones(data));
+};
 
-// Add phones to the DOM
-function showPhones(data) {
-  phonesContainer.innerHTML = "";
-  phonesLength.innerHTML = `Number of phones found: ${data.length}`;
+const displayPhones = (phoneList) => {
+  //   console.log(phoneList);
+};
 
-  data.forEach((phone) => {
-    phonesContainer.innerHTML += `
-      <div class="col col-md-4 col-lg-3 mb-1">
-        <div class="card">
-            <img class="img-fluid"  onerror="this.onerror=null; 
-            this.src='https://images.unsplash.com/photo-1532037001556-decb941504a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80'"  
-            src=" https://openapi.programming-hero.com/api/phone/${slug}" class="card-img-top" alt="book" />
-            <div class="card-body">
-                <h3 class="card-title"><b>Title</b>:${phone.brand}</h3>
-                <p><b>Author name</b>:${phone.phone_name || ""}</p>
-                <p><b>Publisher</b>:${phone.slug || ""}</p>
-                // <p><b>Publishing date</b>:${phone.release_date || ""}</p>
-            </div>
-        </div>
-    </div>
-    `;
-  });
-}
+// // Selectors
+// const form = document.getElementById("form");
+// const phoneInput = document.getElementById("phoneInput");
+// const phonesLength = document.getElementById("phonesLength");
+// const spinner = document.getElementById("spinner");
+// const phonesContainer = document.getElementById("phonesContainer");
 
-// Event listeners
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (!phoneInput.value) {
-    alert("Invalid input.");
-  } else {
-    getPhones(phoneInput.value.trim());
-    phoneInput.value = "";
-  }
-});
+// // Fetching phones data from API
+// // function getPhones(searchText) {
+// //   spinner.classList.remove("hide");
+// //   phonesContainer.innerHTML = "";
+// //   phonesLength.innerHTML = "";
+
+// fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+// // {
+
+// //       showPhones(data.docs);
+// //       spinner.classList.add("hide");
+// //     });
+// // }
+
+// // Add phones to the DOM
+// // function showPhones(data) {
+// //   phonesContainer.innerHTML = "";
+// //   phonesLength.innerHTML = `Number of phones found: ${data.length}`;
+
+// //   data.forEach((phone) => {
+// //     phonesContainer.innerHTML += `
+// //       <div class="col col-md-4 col-lg-3 mb-1">
+// //         <div class="card">
+// //             <img class="img-fluid"  onerror="this.onerror=null;
+// //             this.src='https://images.unsplash.com/photo-1532037001556-decb941504a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80'"
+// //             src=" https://openapi.programming-hero.com/api/phone/${slug}" class="card-img-top" alt="book" />
+// //             <div class="card-body">
+// //                 <h3 class="card-title"><b>Title</b>:${phone.brand}</h3>
+// //                 <p><b>Author name</b>:${phone.phone_name || ""}</p>
+// //                 <p><b>Publisher</b>:${phone.slug || ""}</p>
+// //                 // <p><b>Publishing date</b>:${phone.release_date || ""}</p>
+// //             </div>
+// //         </div>
+// //     </div>
+// //     `;
+// //   });
+// // }
+
+// // // Event listeners
+// // form.addEventListener("submit", (e) => {
+// //   e.preventDefault();
+// //   if (!phoneInput.value) {
+// //     alert("Invalid input.");
+// //   } else {
+// //     getPhones(phoneInput.value.trim());
+// //     phoneInput.value = "";
+// //   }
+// // });
