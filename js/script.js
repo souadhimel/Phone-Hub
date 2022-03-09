@@ -12,7 +12,7 @@ const showPhones = (datas) => {
     const parent = document.getElementById("phone_container");
     const div = document.createElement("div");
     div.innerHTML = `
-  <div class="card border border-info">
+  <div class="card border p-5  border-info">
   <div class="pro_pic">
     <img class="w-25" src="${data.image}" alt="">
   </div>
@@ -22,13 +22,35 @@ const showPhones = (datas) => {
   
 
  <div class="all-btn" id="all-btn">
-  <button class="btn btn-primary">Details</button>
+  <button onclick="details('${data.slug}')" class="btn btn-primary">Details</button>
  </div>
 </div> 
   `;
     parent.appendChild(div);
   }
   console.log(datas);
+};
+
+const details = (info) => {
+  const url = `https://openapi.programming-hero.com/api/phone/${info}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => setDetails(data.data));
+};
+
+const setDetails = (allInfo) => {
+  document.getElementById("details_container").innerHTML = `
+  <div>
+  <img src="${allInfo.image}" alt="">
+  <h1>${allInfo.name}</h1>
+  <h2>${allInfo.releaseDate}</h2>
+
+  
+  
+  </div>
+  
+  
+  `;
 };
 
 // const getPhones = () => {
