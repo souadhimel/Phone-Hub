@@ -1,21 +1,30 @@
-* {
+ /* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.hide {
-  display: none;
-}
 
-img {
+.phone_container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 5fr)!important;
+  /* grid-gap: 10px !important; */
+  /* overflow: hidden; */
+
+
+ */
+/* img {
   width: 300px !important;
   height: 300px !important;
   object-fit: cover !important;
-}
+} */
 
-input[type="text"] {
+/* input[type="text"] {
   padding: 0.5rem;
   width: 100%;
-  max-width: 600px;
-}
+  max-width: 600px; */ */
+/* }
+
+
+
+
