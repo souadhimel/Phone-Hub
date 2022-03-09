@@ -2,11 +2,33 @@ const getPhones = () => {
   const searchValue = document.getElementById("search-box").value;
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
 
-  console.log(url);
   fetch(url)
     .then((response) => response.json())
-    .then((data) => console.log(data));
-  console.log(searchValue);
+    .then((data) => showPhones(data.data));
+};
+
+const showPhones = (datas) => {
+  for (const data of datas) {
+    const parent = document.getElementById("phone_container");
+    const div = document.createElement("div");
+    div.innerHTML = `
+  <div class="card border border-info">
+  <div class="pro_pic">
+    <img class="w-25" src="${data.image}" alt="">
+  </div>
+  <h2>Brand:${data.brand}</h2>
+  <h3>Phone name:${data.phone_name}</h3>
+  <h3>Slug:${data.slug}</h3>
+  
+
+ <div class="all-btn" id="all-btn">
+  <button class="btn btn-primary">Details</button>
+ </div>
+</div> 
+  `;
+    parent.appendChild(div);
+  }
+  console.log(datas);
 };
 
 // const getPhones = () => {
