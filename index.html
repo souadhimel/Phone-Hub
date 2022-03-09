@@ -17,8 +17,24 @@
   </head>
   <body>
     <div class="container py-4">
-      <h1 class="text-center text-primary mb-2">Search your desired phone</h1>
-      <button class="btn btn-warning" onclick="getPhones()">Search</button>
+      <div class="container">
+        <div class="row w-100 m-auto">
+          <div class="col-md-8">
+            <h1 class="text-center text-primary mb-2">
+              Search your desired phone
+            </h1>
+            <div class="input-group mb-3">
+              <input id="search-box" type="text" class="form-control" placeholder="Type your desired phone name please" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <span class="btn btn-warning" onclick="getPhones()" class="input-group-text" id="search-btn">Search
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h1>Details</h1>
+          </div>
+        </div>
+      </div>
 
       <!-- Search field
       <form id="form" class="d-flex justify-content-center">

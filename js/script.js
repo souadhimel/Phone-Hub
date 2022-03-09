@@ -1,12 +1,23 @@
 const getPhones = () => {
-  fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
-    .then((res) => res.json())
-    .then((data) => displayPhones(data));
+  const searchValue = document.getElementById("search-box").value;
+  const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
+
+  console.log(url);
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+  console.log(searchValue);
 };
 
-const displayPhones = (phoneList) => {
-  //   console.log(phoneList);
-};
+// const getPhones = () => {
+//   fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
+//     .then((res) => res.json())
+//     .then((data) => displayPhones(data));
+// };
+
+// const displayPhones = (phoneList) => {
+//   //   console.log(phoneList);
+// };
 
 // // Selectors
 // const form = document.getElementById("form");
