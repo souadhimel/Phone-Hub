@@ -51,7 +51,9 @@ const setDetails = (allInfo) => {
   <div>
   <img src="${allInfo.image}" alt="">
   <h1>${allInfo.name}</h1>
-  <h4>${allInfo.releaseDate}</h4>
+  <h4>${
+    allInfo.releaseDate ? allInfo.releaseDate : "Sorry, no date is found"
+  }</h4>
   <h4>${allInfo.mainFeatures.storage}</h4>
   <h4>${allInfo.mainFeatures.displaySize}</h4>
   <h4>${allInfo.mainFeatures.chipSet}</h4>
